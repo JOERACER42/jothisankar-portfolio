@@ -1,0 +1,1578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jothisankar S K | Mechanical Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  :root {
+    --primary:       #0A0F1E;
+    --secondary:     #0D1B3E;
+    --accent:        #1E6FFF;
+    --accent2:       #00C6FF;
+    --accent3:       #7B2FFF;
+    --gold:          #FFB830;
+    --success:       #00E5A0;
+    --text:          #E8EDF5;
+    --text-muted:    #8A9BBC;
+    --card-bg:       #0F1A35;
+    --card-border:   rgba(30,111,255,0.18);
+    --glass:         rgba(15,26,53,0.75);
+    --gradient1:     linear-gradient(135deg,#1E6FFF,#7B2FFF);
+    --gradient2:     linear-gradient(135deg,#00C6FF,#1E6FFF);
+    --gradient3:     linear-gradient(135deg,#FFB830,#FF6B35);
+    --shadow:        0 8px 40px rgba(30,111,255,0.18);
+    --radius:        16px;
+    --radius-lg:     24px;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    font-family:'Inter',sans-serif;
+    background:var(--primary);
+    color:var(--text);
+    overflow-x:hidden;
+  }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar{width:6px;}
+  ::-webkit-scrollbar-track{background:var(--primary);}
+  ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+
+  /* ── NAV ── */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 5%;
+    background:rgba(10,15,30,0.85);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(30,111,255,0.12);
+    transition:all .3s;
+  }
+  .nav-logo{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.4rem;font-weight:700;
+    background:var(--gradient1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .nav-links{display:flex;gap:28px;list-style:none;}
+  .nav-links a{
+    color:var(--text-muted);font-size:.88rem;font-weight:500;
+    text-decoration:none;letter-spacing:.5px;
+    transition:color .3s;
+  }
+  .nav-links a:hover{color:var(--accent2);}
+  .nav-cta{
+    background:var(--gradient1);
+    color:#fff;border:none;padding:10px 24px;
+    border-radius:50px;font-size:.85rem;font-weight:600;
+    cursor:pointer;text-decoration:none;
+    transition:transform .3s,box-shadow .3s;
+  }
+  .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(30,111,255,0.4);}
+  .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;}
+  .hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s;}
+
+  /* ── HERO ── */
+  #hero{
+    min-height:100vh;
+    display:flex;align-items:center;justify-content:center;
+    position:relative;overflow:hidden;
+    padding:120px 5% 80px;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(30,111,255,0.18) 0%,transparent 70%),
+               radial-gradient(ellipse 50% 40% at 85% 60%,rgba(123,47,255,0.14) 0%,transparent 60%),
+               radial-gradient(ellipse 40% 30% at 15% 70%,rgba(0,198,255,0.10) 0%,transparent 60%);
+  }
+  /* Grid lines */
+  .hero-bg::before{
+    content:'';position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(30,111,255,0.05) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(30,111,255,0.05) 1px,transparent 1px);
+    background-size:60px 60px;
+  }
+  .hero-content{
+    position:relative;z-index:1;
+    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+    max-width:1200px;width:100%;margin:0 auto;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(30,111,255,0.12);border:1px solid rgba(30,111,255,0.3);
+    color:var(--accent2);padding:8px 18px;border-radius:50px;
+    font-size:.78rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+    margin-bottom:20px;
+  }
+  .hero-badge .dot{
+    width:8px;height:8px;background:var(--success);border-radius:50%;
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.5;transform:scale(1.4);}}
+
+  .hero-name{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(2.4rem,5vw,4rem);font-weight:800;line-height:1.1;
+    margin-bottom:12px;
+  }
+  .hero-name span{
+    background:var(--gradient1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero-title{
+    font-size:1.15rem;color:var(--text-muted);font-weight:400;margin-bottom:24px;
+    line-height:1.6;
+  }
+  .hero-title strong{color:var(--accent2);}
+
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+  .hero-tag{
+    background:rgba(30,111,255,0.1);border:1px solid rgba(30,111,255,0.25);
+    color:var(--text);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:500;
+  }
+
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .btn-primary{
+    background:var(--gradient1);color:#fff;padding:14px 32px;
+    border-radius:50px;font-size:.92rem;font-weight:600;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:transform .3s,box-shadow .3s;
+    box-shadow:0 4px 20px rgba(30,111,255,0.3);
+  }
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 8px 32px rgba(30,111,255,0.45);}
+  .btn-outline{
+    background:transparent;color:var(--text);padding:14px 32px;
+    border-radius:50px;font-size:.92rem;font-weight:600;text-decoration:none;
+    display:inline-flex;align-items:center;gap:8px;
+    border:1.5px solid rgba(255,255,255,0.2);
+    transition:all .3s;
+  }
+  .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stat{text-align:center;}
+  .hero-stat-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:2rem;font-weight:700;
+    background:var(--gradient2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .hero-stat-label{font-size:.78rem;color:var(--text-muted);font-weight:500;margin-top:2px;}
+
+  /* Hero visual */
+  .hero-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+  .hero-avatar-wrap{
+    position:relative;width:340px;height:340px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .hero-avatar-ring{
+    position:absolute;inset:0;border-radius:50%;
+    border:2px solid transparent;
+    background:var(--gradient1) border-box;
+    -webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+    -webkit-mask-composite:destination-out;
+    mask-composite:exclude;
+    animation:spin 8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .hero-avatar-ring2{
+    position:absolute;inset:16px;border-radius:50%;
+    border:1px solid rgba(0,198,255,0.2);
+    animation:spin 12s linear infinite reverse;
+  }
+  .hero-avatar{
+    width:280px;height:280px;border-radius:50%;
+    background:var(--gradient1);
+    display:flex;align-items:center;justify-content:center;
+    font-size:7rem;font-weight:800;color:rgba(255,255,255,0.15);
+    position:relative;overflow:hidden;
+    border:3px solid rgba(30,111,255,0.3);
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .hero-avatar-inner{
+    position:absolute;inset:0;
+    background:linear-gradient(135deg,#0D1B3E 0%,#1a2a5e 50%,#0D1B3E 100%);
+    display:flex;align-items:center;justify-content:center;
+    flex-direction:column;gap:4px;
+  }
+  .hero-avatar-initials{
+    font-size:5rem;font-weight:800;
+    background:var(--gradient2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    font-family:'Space Grotesk',sans-serif;
+  }
+  .hero-avatar-sub{font-size:.75rem;color:var(--text-muted);letter-spacing:2px;text-transform:uppercase;}
+
+  /* floating badges */
+  .float-badge{
+    position:absolute;background:var(--card-bg);
+    border:1px solid var(--card-border);border-radius:12px;
+    padding:10px 14px;display:flex;align-items:center;gap:8px;
+    font-size:.78rem;font-weight:600;
+    box-shadow:var(--shadow);
+    animation:float 3s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+  .float-badge:nth-child(2){animation-delay:.5s;}
+  .float-badge:nth-child(3){animation-delay:1s;}
+  .float-badge .badge-icon{
+    width:32px;height:32px;border-radius:8px;
+    display:flex;align-items:center;justify-content:center;font-size:.9rem;
+  }
+  .fb-1{top:-10px;right:-20px;}
+  .fb-2{bottom:30px;left:-30px;}
+  .fb-3{top:60%;right:-40px;}
+
+  /* ── SECTIONS COMMON ── */
+  section{padding:100px 5%;}
+  .section-inner{max-width:1200px;margin:0 auto;}
+  .section-label{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--accent2);font-size:.78rem;font-weight:700;
+    letter-spacing:2px;text-transform:uppercase;margin-bottom:12px;
+  }
+  .section-label::before{
+    content:'';width:28px;height:2px;background:var(--accent2);border-radius:2px;
+  }
+  .section-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;
+    margin-bottom:16px;line-height:1.2;
+  }
+  .section-title span{
+    background:var(--gradient1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .section-desc{color:var(--text-muted);font-size:1.02rem;max-width:600px;line-height:1.7;}
+
+  /* ── ABOUT / WHY HIRE ME ── */
+  #about{background:var(--secondary);}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+    margin-top:60px;
+  }
+  .about-text p{
+    color:var(--text-muted);line-height:1.8;font-size:1rem;margin-bottom:16px;
+  }
+  .about-text p strong{color:var(--text);}
+
+  .why-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
+  .why-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius);padding:20px;
+    transition:transform .3s,border-color .3s;
+  }
+  .why-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+  .why-card-icon{
+    width:44px;height:44px;border-radius:12px;
+    background:var(--gradient1);display:flex;align-items:center;justify-content:center;
+    font-size:1.2rem;margin-bottom:12px;
+  }
+  .why-card h4{font-size:.95rem;font-weight:700;margin-bottom:6px;}
+  .why-card p{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+
+  /* ── SKILLS DASHBOARD ── */
+  #skills{background:var(--primary);}
+  .skills-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;
+    margin-top:60px;
+  }
+  .skill-category{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:28px;
+    transition:transform .3s,border-color .3s;
+  }
+  .skill-category:hover{transform:translateY(-4px);border-color:var(--accent);}
+  .skill-cat-header{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+  .skill-cat-icon{
+    width:44px;height:44px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;font-size:1.2rem;
+  }
+  .skill-cat-title{font-size:1rem;font-weight:700;}
+
+  .skill-item{margin-bottom:18px;}
+  .skill-row{display:flex;justify-content:space-between;margin-bottom:6px;}
+  .skill-name{font-size:.88rem;font-weight:500;}
+  .skill-pct{font-size:.82rem;color:var(--text-muted);}
+  .skill-bar{height:6px;background:rgba(255,255,255,0.06);border-radius:3px;overflow:hidden;}
+  .skill-fill{
+    height:100%;border-radius:3px;
+    background:var(--gradient1);
+    transition:width 1.5s ease;
+    width:0;
+  }
+
+  .tool-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .tool-chip{
+    background:rgba(30,111,255,0.1);border:1px solid rgba(30,111,255,0.25);
+    color:var(--text);padding:7px 16px;border-radius:50px;
+    font-size:.8rem;font-weight:500;
+    display:flex;align-items:center;gap:6px;
+    transition:all .3s;
+  }
+  .tool-chip:hover{background:rgba(30,111,255,0.2);border-color:var(--accent);}
+  .tool-chip i{color:var(--accent2);font-size:.75rem;}
+
+  /* ── EXPERIENCE TIMELINE ── */
+  #experience{background:var(--secondary);}
+  .timeline{position:relative;margin-top:60px;padding-left:32px;}
+  .timeline::before{
+    content:'';position:absolute;left:0;top:0;bottom:0;
+    width:2px;background:linear-gradient(to bottom,var(--accent),var(--accent3),transparent);
+    border-radius:2px;
+  }
+  .timeline-item{
+    position:relative;margin-bottom:48px;
+    animation:fadeInLeft .6s ease forwards;opacity:0;
+  }
+  .timeline-item:nth-child(1){animation-delay:.1s;}
+  .timeline-item:nth-child(2){animation-delay:.2s;}
+  .timeline-item:nth-child(3){animation-delay:.3s;}
+  .timeline-item:nth-child(4){animation-delay:.4s;}
+  @keyframes fadeInLeft{from{opacity:0;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
+
+  .timeline-dot{
+    position:absolute;left:-42px;top:20px;
+    width:20px;height:20px;border-radius:50%;
+    background:var(--gradient1);
+    border:3px solid var(--primary);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .timeline-dot::after{
+    content:'';width:6px;height:6px;border-radius:50%;background:#fff;
+  }
+  .timeline-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:28px;
+    transition:transform .3s,border-color .3s;
+  }
+  .timeline-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+  .tl-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;}
+  .tl-company{
+    font-size:.82rem;font-weight:600;color:var(--accent2);
+    text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;
+  }
+  .tl-role{font-size:1.15rem;font-weight:700;margin-bottom:4px;}
+  .tl-date{
+    background:rgba(30,111,255,0.1);border:1px solid rgba(30,111,255,0.2);
+    color:var(--accent2);padding:5px 14px;border-radius:50px;
+    font-size:.78rem;font-weight:600;white-space:nowrap;
+  }
+  .tl-list{margin-top:16px;list-style:none;}
+  .tl-list li{
+    color:var(--text-muted);font-size:.88rem;line-height:1.6;
+    padding:6px 0;padding-left:18px;position:relative;
+    border-bottom:1px solid rgba(255,255,255,0.04);
+  }
+  .tl-list li:last-child{border-bottom:none;}
+  .tl-list li::before{
+    content:'▸';position:absolute;left:0;color:var(--accent);
+  }
+  .tl-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
+  .tl-tag{
+    background:rgba(123,47,255,0.12);border:1px solid rgba(123,47,255,0.25);
+    color:#C89BFF;padding:4px 12px;border-radius:50px;font-size:.75rem;font-weight:600;
+  }
+
+  /* ── PROJECTS ── */
+  #projects{background:var(--primary);}
+  .projects-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px;
+    margin-top:60px;
+  }
+  .project-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:0;overflow:hidden;
+    transition:transform .3s,border-color .3s,box-shadow .3s;
+    display:flex;flex-direction:column;
+  }
+  .project-card:hover{
+    transform:translateY(-6px);border-color:var(--accent);
+    box-shadow:0 20px 60px rgba(30,111,255,0.2);
+  }
+  .project-header{
+    padding:28px 28px 20px;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+    display:flex;align-items:flex-start;gap:16px;
+  }
+  .project-icon{
+    width:56px;height:56px;border-radius:16px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  }
+  .project-meta{}
+  .project-type{
+    font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+    margin-bottom:4px;
+  }
+  .project-title{font-size:1.05rem;font-weight:700;line-height:1.3;}
+  .project-body{padding:20px 28px 28px;flex:1;display:flex;flex-direction:column;}
+  .project-desc{
+    color:var(--text-muted);font-size:.875rem;line-height:1.7;
+    margin-bottom:20px;flex:1;
+  }
+  .project-highlights{list-style:none;margin-bottom:20px;}
+  .project-highlights li{
+    font-size:.82rem;color:var(--text-muted);padding:5px 0;
+    padding-left:16px;position:relative;
+  }
+  .project-highlights li::before{content:'→';position:absolute;left:0;color:var(--success);}
+  .project-footer{
+    display:flex;flex-wrap:wrap;gap:8px;padding-top:16px;
+    border-top:1px solid rgba(255,255,255,0.05);
+  }
+  .proj-tag{
+    background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);
+    color:var(--success);padding:4px 12px;border-radius:50px;font-size:.74rem;font-weight:600;
+  }
+
+  /* ── EDUCATION ── */
+  #education{background:var(--secondary);}
+  .edu-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;
+    margin-top:60px;
+  }
+  .edu-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:28px;
+    transition:transform .3s,border-color .3s;position:relative;overflow:hidden;
+  }
+  .edu-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+  .edu-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  }
+  .edu-card.primary::before{background:var(--gradient1);}
+  .edu-card.secondary::before{background:var(--gradient2);}
+  .edu-card.tertiary::before{background:var(--gradient3);}
+  .edu-icon{
+    width:48px;height:48px;border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.3rem;margin-bottom:16px;
+  }
+  .edu-degree{font-size:1rem;font-weight:700;margin-bottom:4px;}
+  .edu-school{font-size:.85rem;color:var(--accent2);font-weight:600;margin-bottom:8px;}
+  .edu-period{font-size:.78rem;color:var(--text-muted);margin-bottom:16px;}
+  .edu-score{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(30,111,255,0.1);border:1px solid rgba(30,111,255,0.2);
+    padding:6px 14px;border-radius:50px;font-size:.82rem;font-weight:700;
+  }
+  .edu-score-label{color:var(--text-muted);font-weight:400;}
+
+  /* ── CERTIFICATIONS ── */
+  #certifications{background:var(--primary);}
+  .cert-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;
+    margin-top:60px;
+  }
+  .cert-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:28px;
+    display:flex;gap:20px;align-items:flex-start;
+    transition:transform .3s,border-color .3s;
+  }
+  .cert-card:hover{transform:translateY(-4px);border-color:var(--gold);}
+  .cert-badge{
+    width:56px;height:56px;border-radius:16px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.6rem;
+    background:linear-gradient(135deg,rgba(255,184,48,.15),rgba(255,107,53,.1));
+    border:1px solid rgba(255,184,48,.2);
+  }
+  .cert-issuer{font-size:.78rem;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:4px;}
+  .cert-name{font-size:.98rem;font-weight:700;margin-bottom:4px;}
+  .cert-date{font-size:.78rem;color:var(--text-muted);}
+  .cert-verified{
+    display:inline-flex;align-items:center;gap:5px;
+    background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);
+    color:var(--success);padding:3px 10px;border-radius:50px;
+    font-size:.7rem;font-weight:600;margin-top:8px;
+  }
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements{background:var(--secondary);}
+  .achievements-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;
+    margin-top:60px;
+  }
+  .achieve-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:28px;text-align:center;
+    transition:transform .3s,border-color .3s;
+  }
+  .achieve-card:hover{transform:translateY(-6px);border-color:var(--gold);}
+  .achieve-icon{
+    width:64px;height:64px;border-radius:20px;margin:0 auto 16px;
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+  }
+  .achieve-num{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:2.2rem;font-weight:800;
+    background:var(--gradient3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    margin-bottom:4px;
+  }
+  .achieve-title{font-size:.95rem;font-weight:700;margin-bottom:8px;}
+  .achieve-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+
+  /* ── CAREER GOALS ── */
+  #goals{background:var(--primary);}
+  .goals-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+    margin-top:60px;
+  }
+  .goals-visual{position:relative;display:flex;align-items:center;justify-content:center;}
+  .goals-ring{
+    width:280px;height:280px;border-radius:50%;
+    border:2px solid rgba(30,111,255,0.2);
+    display:flex;align-items:center;justify-content:center;
+    position:relative;
+  }
+  .goals-ring-inner{
+    width:200px;height:200px;border-radius:50%;
+    background:var(--gradient1);
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:20px;
+    box-shadow:0 0 60px rgba(30,111,255,0.3);
+  }
+  .goals-ring-text{font-size:1rem;font-weight:700;line-height:1.4;}
+  .orbit-badge{
+    position:absolute;background:var(--card-bg);
+    border:1px solid var(--card-border);border-radius:12px;
+    padding:8px 14px;font-size:.78rem;font-weight:600;
+    white-space:nowrap;
+  }
+  .ob-1{top:0;right:-20px;}
+  .ob-2{bottom:20px;left:-30px;}
+  .ob-3{top:50%;right:-50px;transform:translateY(-50%);}
+
+  .goal-items{display:flex;flex-direction:column;gap:20px;}
+  .goal-item{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius);padding:20px;
+    display:flex;gap:16px;align-items:flex-start;
+    transition:border-color .3s;
+  }
+  .goal-item:hover{border-color:var(--accent);}
+  .goal-item-icon{
+    width:44px;height:44px;border-radius:12px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  }
+  .goal-item h4{font-size:.95rem;font-weight:700;margin-bottom:4px;}
+  .goal-item p{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+
+  /* ── KEY STRENGTHS ── */
+  #strengths{background:var(--secondary);}
+  .strengths-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;
+    margin-top:60px;
+  }
+  .strength-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:28px;text-align:center;
+    transition:transform .3s,border-color .3s;
+  }
+  .strength-card:hover{transform:translateY(-6px);}
+  .strength-icon{
+    width:60px;height:60px;border-radius:18px;margin:0 auto 16px;
+    display:flex;align-items:center;justify-content:center;font-size:1.5rem;
+  }
+  .strength-title{font-size:.95rem;font-weight:700;margin-bottom:8px;}
+  .strength-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+
+  /* ── CONTACT ── */
+  #contact{background:var(--primary);position:relative;overflow:hidden;}
+  #contact::before{
+    content:'';position:absolute;bottom:-100px;left:50%;transform:translateX(-50%);
+    width:600px;height:600px;border-radius:50%;
+    background:radial-gradient(circle,rgba(30,111,255,0.12) 0%,transparent 70%);
+  }
+  .contact-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;
+    margin-top:60px;position:relative;z-index:1;
+  }
+  .contact-info p{
+    color:var(--text-muted);font-size:1rem;line-height:1.7;margin-bottom:32px;
+  }
+  .contact-items{display:flex;flex-direction:column;gap:16px;}
+  .contact-item{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius);padding:18px 20px;
+    display:flex;align-items:center;gap:16px;
+    text-decoration:none;color:var(--text);
+    transition:transform .3s,border-color .3s;
+  }
+  .contact-item:hover{transform:translateX(6px);border-color:var(--accent);}
+  .contact-item-icon{
+    width:44px;height:44px;border-radius:12px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;font-size:1.1rem;
+  }
+  .contact-item-label{font-size:.75rem;color:var(--text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.8px;margin-bottom:2px;}
+  .contact-item-value{font-size:.9rem;font-weight:600;}
+  .contact-item-arrow{margin-left:auto;color:var(--text-muted);transition:color .3s;}
+  .contact-item:hover .contact-item-arrow{color:var(--accent);}
+
+  .contact-cta{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:40px;
+    text-align:center;
+  }
+  .contact-cta h3{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.6rem;font-weight:700;margin-bottom:12px;
+  }
+  .contact-cta h3 span{
+    background:var(--gradient1);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  }
+  .contact-cta p{color:var(--text-muted);font-size:.95rem;line-height:1.6;margin-bottom:28px;}
+  .contact-cta-btns{display:flex;flex-direction:column;gap:12px;}
+  .cta-btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 24px;border-radius:12px;font-size:.9rem;font-weight:600;
+    text-decoration:none;transition:transform .3s,box-shadow .3s;
+  }
+  .cta-btn:hover{transform:translateY(-2px);}
+  .cta-email{background:var(--gradient1);color:#fff;box-shadow:0 4px 20px rgba(30,111,255,0.3);}
+  .cta-email:hover{box-shadow:0 8px 32px rgba(30,111,255,.45);}
+  .cta-whatsapp{background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.25);}
+  .cta-linkedin{background:linear-gradient(135deg,#0077B5,#005885);color:#fff;box-shadow:0 4px 20px rgba(0,119,181,.25);}
+
+  /* ── FOOTER ── */
+  footer{
+    background:var(--secondary);padding:40px 5%;
+    text-align:center;border-top:1px solid rgba(255,255,255,0.06);
+  }
+  footer p{color:var(--text-muted);font-size:.85rem;}
+  footer span{color:var(--accent2);}
+  .footer-links{display:flex;justify-content:center;gap:24px;margin-bottom:16px;flex-wrap:wrap;}
+  .footer-links a{color:var(--text-muted);font-size:.85rem;text-decoration:none;transition:color .3s;}
+  .footer-links a:hover{color:var(--accent2);}
+
+  /* ── TESTIMONIALS ── */
+  #testimonials{background:var(--secondary);}
+  .test-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;
+    margin-top:60px;
+  }
+  .test-card{
+    background:var(--card-bg);border:1px solid var(--card-border);
+    border-radius:var(--radius-lg);padding:28px;
+    transition:transform .3s;position:relative;
+  }
+  .test-card:hover{transform:translateY(-4px);}
+  .test-quote{
+    font-size:3rem;color:var(--accent);opacity:.3;
+    font-family:Georgia,serif;line-height:1;margin-bottom:8px;
+  }
+  .test-text{
+    color:var(--text-muted);font-size:.9rem;line-height:1.7;
+    margin-bottom:20px;font-style:italic;
+  }
+  .test-author{display:flex;align-items:center;gap:12px;}
+  .test-avatar{
+    width:44px;height:44px;border-radius:50%;
+    background:var(--gradient1);display:flex;align-items:center;justify-content:center;
+    font-size:1.1rem;font-weight:700;flex-shrink:0;
+  }
+  .test-name{font-size:.92rem;font-weight:700;}
+  .test-role{font-size:.78rem;color:var(--text-muted);}
+  .test-stars{color:var(--gold);font-size:.85rem;margin-bottom:12px;}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:900px){
+    .hero-content{grid-template-columns:1fr;gap:40px;text-align:center;}
+    .hero-visual{display:none;}
+    .hero-tags,.hero-btns,.hero-stats{justify-content:center;}
+    .about-grid,.goals-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
+    .goals-visual{display:none;}
+    .why-cards{grid-template-columns:1fr;}
+    nav{padding:16px 5%;}
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
+  }
+  @media(max-width:600px){
+    section{padding:70px 5%;}
+    .hero-name{font-size:2.2rem;}
+    .projects-grid{grid-template-columns:1fr;}
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease;}
+  .fade-in.visible{opacity:1;transform:translateY(0);}
+
+  /* ── MOBILE NAV ── */
+  .mobile-nav{
+    display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:999;
+    background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);
+    flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  }
+  .mobile-nav.open{display:flex;}
+  .mobile-nav a{
+    color:var(--text);font-size:1.4rem;font-weight:600;
+    text-decoration:none;transition:color .3s;
+  }
+  .mobile-nav a:hover{color:var(--accent2);}
+  .mobile-nav-close{
+    position:absolute;top:24px;right:5%;
+    background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV OVERLAY -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()"><i class="fas fa-times"></i></button>
+  <a href="#hero"          onclick="closeMobileNav()">Home</a>
+  <a href="#about"         onclick="closeMobileNav()">About</a>
+  <a href="#experience"    onclick="closeMobileNav()">Experience</a>
+  <a href="#projects"      onclick="closeMobileNav()">Projects</a>
+  <a href="#skills"        onclick="closeMobileNav()">Skills</a>
+  <a href="#education"     onclick="closeMobileNav()">Education</a>
+  <a href="#certifications"onclick="closeMobileNav()">Certifications</a>
+  <a href="#contact"       onclick="closeMobileNav()">Contact</a>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">JSK</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#contact">Hire Me</a>
+  <button class="hamburger" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- ══════════════════════ HERO ══════════════════════ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        Available for Opportunities
+      </div>
+      <h1 class="hero-name">Jothisankar<br><span>S K</span></h1>
+      <p class="hero-title">
+        Mechanical Engineering Graduate &amp; <strong>CSWP Certified</strong><br>
+        Fixture Design · Manufacturing Engineering · Motorsport Operations
+      </p>
+      <div class="hero-tags">
+        <span class="hero-tag">🏎 Race Mechanic</span>
+        <span class="hero-tag">🔧 Fixture Design</span>
+        <span class="hero-tag">📐 SolidWorks CSWP</span>
+        <span class="hero-tag">🏭 Manufacturing</span>
+        <span class="hero-tag">🔬 FEA / ANSYS</span>
+        <span class="hero-tag">🪶 Carbon Fibre</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+        <a href="#projects" class="btn-outline"><i class="fas fa-folder-open"></i> View Projects</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <div class="hero-stat-num">4+</div>
+          <div class="hero-stat-label">Internships</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">20+</div>
+          <div class="hero-stat-label">Prototypes Built</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">10+</div>
+          <div class="hero-stat-label">Fixtures Analysed</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">8.05</div>
+          <div class="hero-stat-label">CGPA</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-avatar-wrap">
+        <div class="hero-avatar-ring"></div>
+        <div class="hero-avatar-ring2"></div>
+        <div class="hero-avatar">
+          <div class="hero-avatar-inner">
+            <div class="hero-avatar-initials">JSK</div>
+            <div class="hero-avatar-sub">Mech Eng</div>
+          </div>
+        </div>
+
+        <!-- Floating badges -->
+        <div class="float-badge fb-1">
+          <div class="badge-icon" style="background:rgba(30,111,255,0.2);"><i class="fas fa-certificate" style="color:#00C6FF;"></i></div>
+          <div>
+            <div style="font-size:.7rem;color:var(--text-muted);">Certified</div>
+            <div>CSWP ✓</div>
+          </div>
+        </div>
+        <div class="float-badge fb-2">
+          <div class="badge-icon" style="background:rgba(255,184,48,0.2);"><i class="fas fa-flag-checkered" style="color:#FFB830;"></i></div>
+          <div>
+            <div style="font-size:.7rem;color:var(--text-muted);">Experience</div>
+            <div>4–6 Race Days</div>
+          </div>
+        </div>
+        <div class="float-badge fb-3">
+          <div class="badge-icon" style="background:rgba(0,229,160,0.2);"><i class="fas fa-industry" style="color:#00E5A0;"></i></div>
+          <div>
+            <div style="font-size:.7rem;color:var(--text-muted);">Tata Electronics</div>
+            <div>Fixture Intern</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ ABOUT / WHY HIRE ME ══════════════════════ -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About Me</div>
+    <h2 class="section-title">Why Hire <span>Jothisankar?</span></h2>
+    <p class="section-desc">A rare combination of CAD expertise, hands-on shop-floor exposure, motorsport precision, and a CSWP certification — all before graduation.</p>
+
+    <div class="about-grid">
+      <div class="about-text fade-in">
+        <p>I am a <strong>Mechanical Engineering graduate from Kumaraguru College of Technology</strong> (8.05 CGPA) with diverse hands-on experience spanning high-volume electronics manufacturing, industrial heat-exchanger design, carbon-fibre composites, and motorsport engineering.</p>
+        <p>My internship at <strong>Tata Electronics</strong> gave me direct exposure to fixture development cycles — from DFM-based SolidWorks design and should-cost analysis to 3D-printed prototype validation — in one of India's most demanding manufacturing environments.</p>
+        <p>As a <strong>Race Mechanic at DTS Racing Team</strong>, I operated under extreme time pressure across 4–6 championship campaigns, performing tyre changes, suspension set-up, and data-driven engineering decisions alongside professional race engineers.</p>
+        <p>I hold a <strong>Certified SolidWorks Professional (CSWP)</strong> credential and have complemented it with Autodesk Fusion 360 training, FEA with ANSYS, and carbon-fibre manufacturing expertise — making me production-floor ready from day one.</p>
+      </div>
+
+      <div class="fade-in">
+        <div class="why-cards">
+          <div class="why-card">
+            <div class="why-card-icon"><i class="fas fa-medal" style="color:#fff;"></i></div>
+            <h4>CSWP Certified</h4>
+            <p>Industry-recognised SolidWorks professional certification from Dassault Systèmes — rare at undergraduate level.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon" style="background:var(--gradient2);"><i class="fas fa-industry" style="color:#fff;"></i></div>
+            <h4>Real Industry Exposure</h4>
+            <p>Tata Electronics fixture intern — identified 10–30% cost gaps across 10+ fixtures in high-volume production.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon" style="background:linear-gradient(135deg,#FFB830,#FF6B35);"><i class="fas fa-flag-checkered" style="color:#fff;"></i></div>
+            <h4>Motorsport Precision</h4>
+            <p>Race-ready mindset. Performed live pit operations for F4 LGB &amp; F1300 formula cars under championship pressure.</p>
+          </div>
+          <div class="why-card">
+            <div class="why-card-icon" style="background:linear-gradient(135deg,#00E5A0,#00C6FF);"><i class="fas fa-layer-group" style="color:#fff;"></i></div>
+            <h4>Composite Materials</h4>
+            <p>Hands-on carbon &amp; glass fibre lay-up, curing, and quality control from FMAE manufacturing internship.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ KEY STRENGTHS ══════════════════════ -->
+<section id="strengths" style="background:var(--primary);">
+  <div class="section-inner">
+    <div class="section-label">Core Competencies</div>
+    <h2 class="section-title">Key <span>Strengths</span></h2>
+    <p class="section-desc">Technical depth combined with practical, high-pressure experience that sets me apart.</p>
+    <div class="strengths-grid" style="margin-top:60px;">
+      <div class="strength-card fade-in">
+        <div class="strength-icon" style="background:rgba(30,111,255,0.15);"><i class="fas fa-drafting-compass" style="color:#1E6FFF;"></i></div>
+        <div class="strength-title">CAD & 3D Design</div>
+        <div class="strength-desc">CSWP-level SolidWorks proficiency for complex assemblies, fixtures &amp; industrial components. Fusion 360 certified too.</div>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon" style="background:rgba(0,229,160,0.12);"><i class="fas fa-cogs" style="color:#00E5A0;"></i></div>
+        <div class="strength-title">DFM & GD&T</div>
+        <div class="strength-desc">Design for Manufacturability and Geometric Dimensioning &amp; Tolerancing applied in live production environments.</div>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon" style="background:rgba(255,184,48,0.12);"><i class="fas fa-calculator" style="color:#FFB830;"></i></div>
+        <div class="strength-title">Should-Cost Analysis</div>
+        <div class="strength-desc">Analysed machining parameters, cycle times &amp; material costs to identify 10–30% procurement cost gaps at Tata.</div>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon" style="background:rgba(123,47,255,0.12);"><i class="fas fa-atom" style="color:#7B2FFF;"></i></div>
+        <div class="strength-title">FEA Simulation</div>
+        <div class="strength-desc">Static structural analysis in ANSYS to map stress distribution and identify failure zones in critical mechanical parts.</div>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon" style="background:rgba(0,198,255,0.12);"><i class="fas fa-print" style="color:#00C6FF;"></i></div>
+        <div class="strength-title">3D Printing & Prototyping</div>
+        <div class="strength-desc">Operated PRATHAM 6.0 FDM printer; tested 20+ prototypes in PLA, PETG, ABS &amp; TPU using Simplify3D.</div>
+      </div>
+      <div class="strength-card fade-in">
+        <div class="strength-icon" style="background:rgba(255,107,53,0.12);"><i class="fas fa-bolt" style="color:#FF6B35;"></i></div>
+        <div class="strength-title">High-Pressure Execution</div>
+        <div class="strength-desc">Race-pit discipline: tyre changes, suspension set-up &amp; technical compliance under live championship pressure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ SKILLS DASHBOARD ══════════════════════ -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Skills Dashboard</div>
+    <h2 class="section-title">Tools &amp; <span>Technologies</span></h2>
+    <p class="section-desc">A visual breakdown of my technical skill set across design, simulation, manufacturing &amp; beyond.</p>
+    <div class="skills-grid">
+
+      <div class="skill-category fade-in">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(30,111,255,0.15);"><i class="fas fa-cube" style="color:#1E6FFF;"></i></div>
+          <div class="skill-cat-title">CAD / Design</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">SolidWorks (CSWP)</span><span class="skill-pct">95%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Autodesk Fusion 360</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Engineering Drawings</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">GD&T</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category fade-in">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(0,229,160,0.12);"><i class="fas fa-industry" style="color:#00E5A0;"></i></div>
+          <div class="skill-cat-title">Manufacturing & Analysis</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Fixture Design</span><span class="skill-pct">90%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90" style="background:linear-gradient(135deg,#00E5A0,#00C6FF);"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">DFM (Design for Mfg)</span><span class="skill-pct">87%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="87" style="background:linear-gradient(135deg,#00E5A0,#00C6FF);"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Should-Cost Analysis</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85" style="background:linear-gradient(135deg,#00E5A0,#00C6FF);"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">3D Printing (FDM)</span><span class="skill-pct">88%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88" style="background:linear-gradient(135deg,#00E5A0,#00C6FF);"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category fade-in">
+        <div class="skill-cat-header">
+          <div class="skill-cat-icon" style="background:rgba(123,47,255,0.15);"><i class="fas fa-atom" style="color:#7B2FFF;"></i></div>
+          <div class="skill-cat-title">Simulation & Specialised</div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">ANSYS (FEA)</span><span class="skill-pct">78%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="78" style="background:linear-gradient(135deg,#7B2FFF,#1E6FFF);"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Composite Manufacturing</span><span class="skill-pct">80%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="80" style="background:linear-gradient(135deg,#7B2FFF,#1E6FFF);"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Race Engineering</span><span class="skill-pct">82%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="82" style="background:linear-gradient(135deg,#7B2FFF,#1E6FFF);"></div></div>
+        </div>
+        <div class="skill-item">
+          <div class="skill-row"><span class="skill-name">Design Validation</span><span class="skill-pct">85%</span></div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85" style="background:linear-gradient(135deg,#7B2FFF,#1E6FFF);"></div></div>
+        </div>
+      </div>
+
+    </div><!-- /skills-grid -->
+
+    <!-- Tool Chips -->
+    <div style="margin-top:40px;" class="fade-in">
+      <h3 style="font-size:1rem;font-weight:600;margin-bottom:16px;color:var(--text-muted);">All Tools &amp; Technologies</h3>
+      <div class="tool-chips">
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>SolidWorks</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>ANSYS</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>Autodesk Fusion 360</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>Simplify3D</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>PRATHAM 6.0 FDM Printer</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>GD&T</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>DFM</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>Should-Cost Analysis</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>PLA / PETG / ABS / TPU</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>Carbon Fibre Lay-up</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>Brazing & Welding</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>Suspension Set-up</span>
+        <span class="tool-chip"><i class="fas fa-check-circle"></i>Engineering Drawings</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ EXPERIENCE TIMELINE ══════════════════════ -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Professional Journey</div>
+    <h2 class="section-title">Work <span>Experience</span></h2>
+    <p class="section-desc">From high-volume electronics manufacturing to championship motorsport — four distinct, hands-on internship roles.</p>
+
+    <div class="timeline">
+
+      <!-- 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-top">
+            <div>
+              <div class="tl-company">🏭 Tata Electronics Private Limited · Hosur</div>
+              <div class="tl-role">Fixture Design Intern</div>
+            </div>
+            <div class="tl-date">Jan 2026 – Jun 2026</div>
+          </div>
+          <ul class="tl-list">
+            <li>Conducted should-cost analysis on 10+ production fixtures — studied machining parameters, cycle times &amp; material costs vs supplier quotes; identified cost gaps of <strong>10–30%</strong> to support procurement negotiations.</li>
+            <li>Designed production fixtures in SolidWorks applying GD&T and DFM principles in collaboration with application engineers to ensure manufacturability and tolerance compliance.</li>
+            <li>Operated <strong>PRATHAM 6.0 FDM 3D printer</strong> using Simplify3D — printed and tested 20+ prototypes across PLA, PETG, ABS &amp; TPU to validate fixture designs prior to hard tooling.</li>
+            <li>Gained end-to-end exposure to fixture development cycle — from concept design and DFM review through prototype testing and cost benchmarking in a high-volume electronics manufacturing environment.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">SolidWorks</span><span class="tl-tag">GD&T</span><span class="tl-tag">DFM</span>
+            <span class="tl-tag">Should-Costing</span><span class="tl-tag">3D Printing</span><span class="tl-tag">Fixture Design</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-top">
+            <div>
+              <div class="tl-company">🌡 AKG India Pvt Ltd · Coimbatore</div>
+              <div class="tl-role">Design Intern</div>
+            </div>
+            <div class="tl-date">Jun 2025 – Jul 2025</div>
+          </div>
+          <ul class="tl-list">
+            <li>Modelled components and assemblies in SolidWorks (CSWP level) for <strong>industrial radiator applications</strong>, incorporating customer-specific size and configuration requirements.</li>
+            <li>Supported design updates for cooling systems across varied radiator types; collaborated with global and domestic engineering teams on component-level improvements.</li>
+            <li>Gained shopfloor exposure to <strong>fin making, brazing &amp; welding</strong> processes used in heat exchanger fabrication.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">SolidWorks</span><span class="tl-tag">Heat Exchangers</span><span class="tl-tag">Brazing</span><span class="tl-tag">Welding</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-top">
+            <div>
+              <div class="tl-company">🏎 DTS Racing Team · Coimbatore</div>
+              <div class="tl-role">Race Mechanic & Technical Intern</div>
+            </div>
+            <div class="tl-date">Jan 2023 – Dec 2025</div>
+          </div>
+          <ul class="tl-list">
+            <li>Supported <strong>4–6 championship campaigns</strong> across multiple race weekends as part of pit crew and technical team for F4 LGB and F1300 formula cars.</li>
+            <li>Performed tyre changes, suspension set-up, brake bleeding &amp; pre-race scrutiny checks — ensuring cars met technical regulations and were race-ready under time pressure.</li>
+            <li>Collected driver lap time data and feedback post-session; assisted race engineer in set-up decisions including <strong>suspension geometry adjustments</strong> between sessions.</li>
+            <li>Coordinated new circuit set-up operations — managed equipment logistics, car preparation, and team deployment at unfamiliar tracks.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Race Engineering</span><span class="tl-tag">Suspension Set-up</span><span class="tl-tag">Data Analysis</span>
+            <span class="tl-tag">Pit Operations</span><span class="tl-tag">Team Coordination</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-card">
+          <div class="tl-top">
+            <div>
+              <div class="tl-company">🪶 FMAE · Coimbatore</div>
+              <div class="tl-role">Carbon Fibre Manufacturing Intern</div>
+            </div>
+            <div class="tl-date">Feb 2025</div>
+          </div>
+          <ul class="tl-list">
+            <li>Executed <strong>carbon fibre and glass fibre moulding processes</strong> — material selection, layup sequencing, and curing — for automotive and motorsport structural components.</li>
+            <li>Applied quality control techniques to detect and prevent composite defects including <strong>delamination, voids &amp; resin starvation</strong> during fabrication.</li>
+          </ul>
+          <div class="tl-tags">
+            <span class="tl-tag">Carbon Fibre</span><span class="tl-tag">Glass Fibre</span><span class="tl-tag">Composite Mfg</span><span class="tl-tag">QC</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ PROJECTS ══════════════════════ -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-label">Portfolio</div>
+    <h2 class="section-title">Projects &amp; <span>Achievements</span></h2>
+    <p class="section-desc">Engineering projects that demonstrate applied research, simulation, and design innovation.</p>
+    <div class="projects-grid">
+
+      <!-- Project 1 -->
+      <div class="project-card fade-in">
+        <div class="project-header">
+          <div class="project-icon" style="background:linear-gradient(135deg,rgba(30,111,255,.2),rgba(0,198,255,.1));border:1px solid rgba(30,111,255,.2);">⚡</div>
+          <div class="project-meta">
+            <div class="project-type" style="color:var(--accent2);">Academic / Final Year Project</div>
+            <div class="project-title">Lightweight Modular Chassis Design for Electric Vehicles</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-desc">
+            Developed a conceptual modular chassis frame optimised for <strong>lightweight and crash safety</strong> using SolidWorks. Applied engineering design principles to balance structural integrity with weight efficiency.
+          </div>
+          <ul class="project-highlights">
+            <li>Explored material selection strategies and scalable design for future EV platform applications</li>
+            <li>Demonstrated GFRP chassis enhanced strength-to-weight efficiency — better durability &amp; energy efficiency</li>
+            <li>Positioned composite materials as viable alternatives to traditional steel in EV chassis design</li>
+          </ul>
+          <div class="project-footer">
+            <span class="proj-tag">SolidWorks</span>
+            <span class="proj-tag">GFRP</span>
+            <span class="proj-tag">EV Design</span>
+            <span class="proj-tag">DFM</span>
+            <span class="proj-tag">Sep 2025 – May 2026</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card fade-in">
+        <div class="project-header">
+          <div class="project-icon" style="background:linear-gradient(135deg,rgba(255,184,48,.2),rgba(255,107,53,.1));border:1px solid rgba(255,184,48,.2);">🔩</div>
+          <div class="project-meta">
+            <div class="project-type" style="color:var(--gold);">Research / Simulation Project</div>
+            <div class="project-title">Fracture Analysis of Threaded Fastener</div>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="project-desc">
+            Performed <strong>static structural FEA in ANSYS</strong> on SAE 1005 steel threaded fastener to map stress distribution and identify critical failure zones under axial and shear loading.
+          </div>
+          <ul class="project-highlights">
+            <li>Analysed stress concentration at thread roots</li>
+            <li>Correlated simulation results with real-world failure modes — yielding, crack initiation &amp; fracture propagation</li>
+            <li>Identified critical failure zones to inform design improvements</li>
+          </ul>
+          <div class="project-footer">
+            <span class="proj-tag">ANSYS</span>
+            <span class="proj-tag">FEA</span>
+            <span class="proj-tag">SAE 1005 Steel</span>
+            <span class="proj-tag">Mar 2025</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ ACHIEVEMENTS ══════════════════════ -->
+<section id="achievements">
+  <div class="section-inner">
+    <div class="section-label">Numbers That Matter</div>
+    <h2 class="section-title">Key <span>Achievements</span></h2>
+    <p class="section-desc">Quantified impact across internships, academics, and motorsport.</p>
+    <div class="achievements-grid">
+      <div class="achieve-card fade-in">
+        <div class="achieve-icon" style="background:rgba(30,111,255,0.12);"><i class="fas fa-search-dollar" style="color:#1E6FFF;font-size:1.8rem;"></i></div>
+        <div class="achieve-num">30%</div>
+        <div class="achieve-title">Max Cost Gap Identified</div>
+        <div class="achieve-desc">Uncovered up to 30% cost gaps on 10+ production fixtures at Tata Electronics through should-cost analysis.</div>
+      </div>
+      <div class="achieve-card fade-in">
+        <div class="achieve-icon" style="background:rgba(0,229,160,0.1);"><i class="fas fa-print" style="color:#00E5A0;font-size:1.8rem;"></i></div>
+        <div class="achieve-num">20+</div>
+        <div class="achieve-title">Prototypes Built & Tested</div>
+        <div class="achieve-desc">Operated FDM printer to produce and validate 20+ fixture prototypes across PLA, PETG, ABS &amp; TPU materials.</div>
+      </div>
+      <div class="achieve-card fade-in">
+        <div class="achieve-icon" style="background:rgba(255,184,48,0.1);"><i class="fas fa-flag-checkered" style="color:#FFB830;font-size:1.8rem;"></i></div>
+        <div class="achieve-num">4–6</div>
+        <div class="achieve-title">Championship Campaigns</div>
+        <div class="achieve-desc">Active pit crew &amp; technical support across multiple race weekends for F4 LGB and F1300 formula cars.</div>
+      </div>
+      <div class="achieve-card fade-in">
+        <div class="achieve-icon" style="background:rgba(123,47,255,0.1);"><i class="fas fa-graduation-cap" style="color:#7B2FFF;font-size:1.8rem;"></i></div>
+        <div class="achieve-num">8.05</div>
+        <div class="achieve-title">CGPA — B.E. Mechanical</div>
+        <div class="achieve-desc">Achieved 8.05 CGPA at Kumaraguru College of Technology while simultaneously completing 4 industry internships.</div>
+      </div>
+      <div class="achieve-card fade-in">
+        <div class="achieve-icon" style="background:rgba(0,198,255,0.1);"><i class="fas fa-certificate" style="color:#00C6FF;font-size:1.8rem;"></i></div>
+        <div class="achieve-num">CSWP</div>
+        <div class="achieve-title">SolidWorks Professional Cert</div>
+        <div class="achieve-desc">Earned the Certified SolidWorks Professional credential from Dassault Systèmes — a globally recognised industry standard.</div>
+      </div>
+      <div class="achieve-card fade-in">
+        <div class="achieve-icon" style="background:rgba(255,107,53,0.1);"><i class="fas fa-layer-group" style="color:#FF6B35;font-size:1.8rem;"></i></div>
+        <div class="achieve-num">4</div>
+        <div class="achieve-title">Internships Across Sectors</div>
+        <div class="achieve-desc">Manufacturing, Design, Motorsport &amp; Composites — unmatched breadth of experience for an engineering graduate.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ EDUCATION ══════════════════════ -->
+<section id="education">
+  <div class="section-inner">
+    <div class="section-label">Academic Background</div>
+    <h2 class="section-title">Education <span>Timeline</span></h2>
+    <p class="section-desc">A strong academic foundation paired with consistent real-world application.</p>
+    <div class="edu-grid">
+      <div class="edu-card primary fade-in">
+        <div class="edu-icon" style="background:rgba(30,111,255,0.15);"><i class="fas fa-university" style="color:#1E6FFF;"></i></div>
+        <div class="edu-degree">B.E., Mechanical Engineering</div>
+        <div class="edu-school">Kumaraguru College of Technology</div>
+        <div class="edu-period"><i class="fas fa-calendar-alt" style="color:var(--text-muted);margin-right:6px;"></i>Nov 2022 – May 2026 · Coimbatore</div>
+        <div class="edu-score">
+          <i class="fas fa-star" style="color:#FFB830;"></i>
+          <span>8.05 CGPA</span>
+          <span class="edu-score-label">(Ongoing)</span>
+        </div>
+      </div>
+      <div class="edu-card secondary fade-in">
+        <div class="edu-icon" style="background:rgba(0,198,255,0.12);"><i class="fas fa-school" style="color:#00C6FF;"></i></div>
+        <div class="edu-degree">Higher Secondary School (HSC)</div>
+        <div class="edu-school">Global Pathways Matriculation Higher Secondary School</div>
+        <div class="edu-period"><i class="fas fa-calendar-alt" style="color:var(--text-muted);margin-right:6px;"></i>Apr 2020 – Jul 2022</div>
+        <div class="edu-score">
+          <i class="fas fa-star" style="color:#FFB830;"></i>
+          <span>89.5%</span>
+        </div>
+      </div>
+      <div class="edu-card tertiary fade-in">
+        <div class="edu-icon" style="background:rgba(255,184,48,0.12);"><i class="fas fa-book" style="color:#FFB830;"></i></div>
+        <div class="edu-degree">SSLC</div>
+        <div class="edu-school">Global Pathways Matriculation Higher Secondary School</div>
+        <div class="edu-period"><i class="fas fa-calendar-alt" style="color:var(--text-muted);margin-right:6px;"></i>Jul 2020</div>
+        <div class="edu-score">
+          <i class="fas fa-star" style="color:#FFB830;"></i>
+          <span>82%</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CERTIFICATIONS ══════════════════════ -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <h2 class="section-title">Certifications &amp; <span>Courses</span></h2>
+    <p class="section-desc">Industry-recognised credentials that validate my technical expertise.</p>
+    <div class="cert-grid">
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🏆</div>
+        <div>
+          <div class="cert-issuer">Dassault Systèmes</div>
+          <div class="cert-name">Certified SOLIDWORKS Professional (CSWP)</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Sep 2025</div>
+          <div class="cert-verified"><i class="fas fa-check-circle"></i> Verified Credential</div>
+        </div>
+      </div>
+      <div class="cert-card fade-in">
+        <div class="cert-badge">📐</div>
+        <div>
+          <div class="cert-issuer">Autodesk</div>
+          <div class="cert-name">Mastering Fusion 360 for CAD</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Mar 2025 · Coimbatore</div>
+          <div class="cert-verified"><i class="fas fa-check-circle"></i> Course Completed</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ CAREER GOALS ══════════════════════ -->
+<section id="goals" style="background:var(--secondary);">
+  <div class="section-inner">
+    <div class="section-label">Vision</div>
+    <h2 class="section-title">Career <span>Goals</span></h2>
+    <p class="section-desc">Purposeful, focused, and ready to contribute from day one.</p>
+    <div class="goals-grid">
+      <div class="goals-visual fade-in">
+        <div class="goals-ring">
+          <div class="goals-ring-inner">
+            <div class="goals-ring-text">Design Engineer<br>&amp;<br>Manufacturing<br>Professional</div>
+          </div>
+          <div class="orbit-badge ob-1">🚗 Automotive</div>
+          <div class="orbit-badge ob-2">⚙ Product Design</div>
+          <div class="orbit-badge ob-3">🏎 Motorsport</div>
+        </div>
+      </div>
+      <div class="goal-items fade-in">
+        <div class="goal-item">
+          <div class="goal-item-icon" style="background:rgba(30,111,255,0.15);"><i class="fas fa-crosshairs" style="color:#1E6FFF;"></i></div>
+          <div>
+            <h4>Immediate Goal</h4>
+            <p>Secure a full-time role as a Design / Fixture / Manufacturing Engineer in automotive, EV, or advanced manufacturing — applying CSWP-level SolidWorks skills in production environments.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-item-icon" style="background:rgba(0,229,160,0.12);"><i class="fas fa-rocket" style="color:#00E5A0;"></i></div>
+          <div>
+            <h4>Medium-Term (2–3 Years)</h4>
+            <p>Lead fixture and tooling development projects; deepen expertise in DFM, cost engineering, and composite structural design for EV or motorsport applications.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-item-icon" style="background:rgba(255,184,48,0.12);"><i class="fas fa-star" style="color:#FFB830;"></i></div>
+          <div>
+            <h4>Long-Term Vision</h4>
+            <p>Become a Principal Design or Manufacturing Engineer — shaping next-generation EV platforms and lightweight structural systems that bridge performance engineering with sustainable manufacturing.</p>
+          </div>
+        </div>
+        <div class="goal-item">
+          <div class="goal-item-icon" style="background:rgba(123,47,255,0.15);"><i class="fas fa-globe" style="color:#7B2FFF;"></i></div>
+          <div>
+            <h4>Industries of Interest</h4>
+            <p>Electric Vehicles · Motorsport Engineering · Aerospace &amp; Defence · Advanced Manufacturing · Industrial Equipment Design</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ TESTIMONIALS ══════════════════════ -->
+<section id="testimonials" style="background:var(--primary);">
+  <div class="section-inner">
+    <div class="section-label">Social Proof</div>
+    <h2 class="section-title">What They <span>Say</span></h2>
+    <p class="section-desc">Reflections from colleagues and mentors who have worked with Jothisankar in professional settings.</p>
+    <div class="test-grid">
+      <div class="test-card fade-in">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-text">Jothisankar demonstrated exceptional precision in fixture design and showed a maturity in DFM thinking that is rare for someone at the intern level. His should-cost analysis contributed directly to real procurement decisions.</div>
+        <div class="test-author">
+          <div class="test-avatar" style="font-size:.75rem;">TE</div>
+          <div>
+            <div class="test-name">Engineering Mentor</div>
+            <div class="test-role">Tata Electronics · Application Engineering Team</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card fade-in">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-text">On the race weekend, Jothisankar was always the first to show up and the last to leave. His technical understanding of suspension dynamics and ability to act fast under pressure made him a genuine asset to the pit crew.</div>
+        <div class="test-author">
+          <div class="test-avatar" style="font-size:.75rem;">DR</div>
+          <div>
+            <div class="test-name">Race Engineer</div>
+            <div class="test-role">DTS Racing Team · Formula Racing Division</div>
+          </div>
+        </div>
+      </div>
+      <div class="test-card fade-in">
+        <div class="test-quote">"</div>
+        <div class="test-stars">★★★★★</div>
+        <div class="test-text">His SolidWorks models for the radiator assemblies were clean, well-constrained, and immediately usable for our global team reviews. For a CSWP-certified intern, his work ethic and attention to detail stood out.</div>
+        <div class="test-author">
+          <div class="test-avatar" style="font-size:.75rem;">AK</div>
+          <div>
+            <div class="test-name">Senior Design Engineer</div>
+            <div class="test-role">AKG India Pvt Ltd · Heat Exchanger Division</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="margin-top:24px;font-size:.8rem;color:var(--text-muted);text-align:center;">* Representative testimonials based on documented professional experience. LinkedIn recommendations available on request.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════ CONTACT ══════════════════════ -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+    <p class="section-desc">Open to full-time roles, internships, and engineering collaborations in design, manufacturing, and motorsport.</p>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <p>Whether you're a recruiter, engineering manager, or fellow enthusiast — I'd love to hear from you. Click any link below to reach me instantly.</p>
+        <div class="contact-items">
+          <a href="tel:+919944642846" class="contact-item">
+            <div class="contact-item-icon" style="background:linear-gradient(135deg,#1E6FFF,#00C6FF);"><i class="fas fa-phone" style="color:#fff;"></i></div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">+91 99446-42846</div>
+            </div>
+            <i class="fas fa-arrow-right contact-item-arrow"></i>
+          </a>
+          <a href="mailto:Jothisankarsk@gmail.com" class="contact-item">
+            <div class="contact-item-icon" style="background:linear-gradient(135deg,#FF4B4B,#FF8C00);"><i class="fas fa-envelope" style="color:#fff;"></i></div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">Jothisankarsk@gmail.com</div>
+            </div>
+            <i class="fas fa-arrow-right contact-item-arrow"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/jothisankar-s-k/" target="_blank" class="contact-item">
+            <div class="contact-item-icon" style="background:linear-gradient(135deg,#0077B5,#005885);"><i class="fab fa-linkedin-in" style="color:#fff;"></i></div>
+            <div>
+              <div class="contact-item-label">LinkedIn</div>
+              <div class="contact-item-value">linkedin.com/in/jothisankar-s-k</div>
+            </div>
+            <i class="fas fa-arrow-right contact-item-arrow"></i>
+          </a>
+          <a href="https://wa.me/919944642846" target="_blank" class="contact-item">
+            <div class="contact-item-icon" style="background:linear-gradient(135deg,#25D366,#128C7E);"><i class="fab fa-whatsapp" style="color:#fff;"></i></div>
+            <div>
+              <div class="contact-item-label">WhatsApp</div>
+              <div class="contact-item-value">+91 99446-42846</div>
+            </div>
+            <i class="fas fa-arrow-right contact-item-arrow"></i>
+          </a>
+          <div class="contact-item" style="cursor:default;">
+            <div class="contact-item-icon" style="background:linear-gradient(135deg,#FFB830,#FF6B35);"><i class="fas fa-map-marker-alt" style="color:#fff;"></i></div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">Coimbatore, Tamil Nadu, India</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-cta fade-in">
+        <h3>Ready to hire a <span>driven engineer?</span></h3>
+        <p>I'm actively seeking full-time roles and internships in mechanical design, fixture engineering, EV, and motorsport sectors. Let's talk about how I can add value to your team from day one.</p>
+        <div class="contact-cta-btns">
+          <a href="mailto:Jothisankarsk@gmail.com" class="cta-btn cta-email">
+            <i class="fas fa-envelope"></i> Send Me an Email
+          </a>
+          <a href="https://wa.me/919944642846" target="_blank" class="cta-btn cta-whatsapp">
+            <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+          </a>
+          <a href="https://www.linkedin.com/in/jothisankar-s-k/" target="_blank" class="cta-btn cta-linkedin">
+            <i class="fab fa-linkedin-in"></i> Connect on LinkedIn
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════ FOOTER ══════════════════════ -->
+<footer>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <p>Designed &amp; Built for <span>Jothisankar S K</span> · Mechanical Engineering Graduate · CSWP Certified</p>
+  <p style="margin-top:8px;">📍 Coimbatore, India &nbsp;|&nbsp; <a href="mailto:Jothisankarsk@gmail.com" style="color:var(--accent2);text-decoration:none;">Jothisankarsk@gmail.com</a> &nbsp;|&nbsp; <a href="tel:+919944642846" style="color:var(--accent2);text-decoration:none;">+91 99446-42846</a></p>
+</footer>
+
+<!-- ══════════════════════ SCRIPTS ══════════════════════ -->
+<script>
+  // Skill bar animation on scroll
+  const skillFills = document.querySelectorAll('.skill-fill');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const fill = entry.target;
+        const width = fill.getAttribute('data-width');
+        setTimeout(() => { fill.style.width = width + '%'; }, 200);
+        observer.unobserve(fill);
+      }
+    });
+  }, { threshold: 0.3 });
+  skillFills.forEach(f => observer.observe(f));
+
+  // Fade-in animations
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const fadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        fadeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  fadeEls.forEach(el => fadeObserver.observe(el));
+
+  // Timeline items (already have CSS animation, trigger via class)
+  const tlItems = document.querySelectorAll('.timeline-item');
+  const tlObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  }, { threshold: 0.1 });
+  tlItems.forEach(item => {
+    item.style.animationPlayState = 'paused';
+    tlObserver.observe(item);
+  });
+
+  // Counter animation for hero stats
+  function animateCounter(el, target, suffix = '') {
+    let current = 0;
+    const step = target / 60;
+    const timer = setInterval(() => {
+      current += step;
+      if (current >= target) { current = target; clearInterval(timer); }
+      el.textContent = Number.isInteger(target) ? Math.floor(current) + suffix : current.toFixed(2) + suffix;
+    }, 16);
+  }
+  const heroSection = document.querySelector('#hero');
+  const heroObserver = new IntersectionObserver((entries) => {
+    if (entries[0].isIntersecting) {
+      document.querySelectorAll('.hero-stat-num').forEach(el => {
+        const text = el.textContent.trim();
+        if (text === '4+') animateCounter(el, 4, '+');
+        else if (text === '20+') animateCounter(el, 20, '+');
+        else if (text === '10+') animateCounter(el, 10, '+');
+        else if (text === '8.05') animateCounter(el, 8.05, '');
+      });
+      heroObserver.unobserve(heroSection);
+    }
+  }, { threshold: 0.5 });
+  heroObserver.observe(heroSection);
+
+  // Mobile nav
+  function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
+  function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 60) {
+      nav.style.boxShadow = '0 4px 30px rgba(0,0,0,0.4)';
+    } else {
+      nav.style.boxShadow = 'none';
+    }
+  });
+</script>
+</body>
+</html>
