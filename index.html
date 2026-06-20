@@ -95,8 +95,9 @@
   }
   .hero-content{
     position:relative;z-index:1;
-    display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
-    max-width:1200px;width:100%;margin:0 auto;
+    display:grid;grid-template-columns:1fr;gap:40px;align-items:center;
+    max-width:900px;width:100%;margin:0 auto;
+    text-align:center;
   }
   .hero-badge{
     display:inline-flex;align-items:center;gap:8px;
@@ -124,12 +125,12 @@
     margin-bottom:24px;line-height:1.6;
   }
   .hero-title strong{color:var(--accent2);}
-  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;justify-content:center;}
   .hero-tag{
     background:rgba(30,111,255,0.1);border:1px solid rgba(30,111,255,0.25);
     color:var(--text);padding:6px 16px;border-radius:50px;font-size:.8rem;font-weight:500;
   }
-  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px;justify-content:center;}
   .btn-primary{
     background:var(--gradient1);color:#fff;padding:14px 32px;
     border-radius:50px;font-size:.92rem;font-weight:600;text-decoration:none;
@@ -145,7 +146,7 @@
     border:1.5px solid rgba(255,255,255,0.2);transition:all .3s;
   }
   .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
-  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;}
+  .hero-stats{display:flex;gap:32px;flex-wrap:wrap;justify-content:center;}
   .hero-stat{text-align:center;}
   .hero-stat-num{
     font-family:'Space Grotesk',sans-serif;
@@ -153,94 +154,6 @@
     background:var(--gradient2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
   }
   .hero-stat-label{font-size:.78rem;color:var(--text-muted);font-weight:500;margin-top:2px;}
-
-  /* ── HERO VISUAL / PHOTO ── */
-  .hero-visual{
-    position:relative;display:flex;
-    align-items:center;justify-content:center;
-  }
-  .hero-avatar-wrap{
-    position:relative;width:340px;height:340px;
-    display:flex;align-items:center;justify-content:center;
-  }
-
-  /* Spinning outer ring */
-  .hero-avatar-ring{
-    position:absolute;inset:0;border-radius:50%;
-    border:2px solid transparent;
-    background:
-      linear-gradient(var(--primary),var(--primary)) padding-box,
-      var(--gradient1) border-box;
-    animation:spin 8s linear infinite;
-  }
-  @keyframes spin{to{transform:rotate(360deg);}}
-
-  /* Inner dashed ring */
-  .hero-avatar-ring2{
-    position:absolute;inset:14px;border-radius:50%;
-    border:1px dashed rgba(0,198,255,0.25);
-    animation:spin 14s linear infinite reverse;
-  }
-
-  /* Glowing backdrop behind photo */
-  .hero-avatar-glow{
-    position:absolute;inset:20px;border-radius:50%;
-    background:var(--gradient1);
-    filter:blur(28px);opacity:0.35;
-    animation:glowPulse 3s ease-in-out infinite;
-  }
-  @keyframes glowPulse{
-    0%,100%{opacity:0.35;transform:scale(1);}
-    50%{opacity:0.55;transform:scale(1.06);}
-  }
-
-  /* The actual photo circle */
-  .hero-photo{
-    position:relative;z-index:2;
-    width:270px;height:270px;border-radius:50%;
-    overflow:hidden;
-    border:3px solid rgba(30,111,255,0.5);
-    box-shadow:
-      0 0 0 6px rgba(30,111,255,0.10),
-      0 20px 60px rgba(30,111,255,0.30),
-      0 4px 20px rgba(0,0,0,0.6);
-    transition:transform .4s ease,box-shadow .4s ease;
-  }
-  .hero-photo:hover{
-    transform:scale(1.03);
-    box-shadow:
-      0 0 0 8px rgba(30,111,255,0.15),
-      0 24px 70px rgba(30,111,255,0.40),
-      0 4px 24px rgba(0,0,0,0.7);
-  }
-  .hero-photo img{
-    width:100%;height:100%;
-    object-fit:cover;
-    object-position:center top;
-    display:block;
-  }
-
-  /* floating badges */
-  .float-badge{
-    position:absolute;background:var(--card-bg);
-    border:1px solid var(--card-border);border-radius:12px;
-    padding:10px 14px;display:flex;align-items:center;gap:8px;
-    font-size:.78rem;font-weight:600;
-    box-shadow:var(--shadow);
-    animation:floatY 3s ease-in-out infinite;
-    z-index:3;
-  }
-  @keyframes floatY{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
-  .float-badge:nth-child(4){animation-delay:.5s;}
-  .float-badge:nth-child(5){animation-delay:1s;}
-  .float-badge:nth-child(6){animation-delay:1.5s;}
-  .float-badge .badge-icon{
-    width:32px;height:32px;border-radius:8px;
-    display:flex;align-items:center;justify-content:center;font-size:.9rem;
-  }
-  .fb-1{top:-10px;right:-20px;}
-  .fb-2{bottom:30px;left:-30px;}
-  .fb-3{top:60%;right:-44px;}
 
   /* ── SECTIONS COMMON ── */
   section{padding:100px 5%;}
@@ -311,8 +224,17 @@
   .about-cred-text{font-size:.92rem;color:var(--text-muted);line-height:1.6;padding-top:7px;}
   .about-cred-text strong{color:var(--text);font-weight:600;}
 
+  /* ── KEY STRENGTHS ── */
+  #strengths{background:var(--primary);}
+  .strengths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+  .strength-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:28px;text-align:center;transition:transform .3s,border-color .3s;display:flex;flex-direction:column;align-items:center;}
+  .strength-card:hover{transform:translateY(-6px);border-color:var(--accent);}
+  .strength-icon{width:60px;height:60px;border-radius:18px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
+  .strength-title{font-size:.95rem;font-weight:700;margin-bottom:8px;}
+  .strength-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+
   /* ── SKILLS ── */
-  #skills{background:var(--primary);}
+  #skills{background:var(--secondary);}
   .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:60px;}
   .skill-category{
     background:var(--card-bg);border:1px solid var(--card-border);
@@ -339,7 +261,7 @@
   .tool-chip i{color:var(--accent2);font-size:.75rem;}
 
   /* ── EXPERIENCE TIMELINE ── */
-  #experience{background:var(--secondary);}
+  #experience{background:var(--primary);}
   .timeline{position:relative;margin-top:60px;padding-left:32px;}
   .timeline::before{
     content:'';position:absolute;left:0;top:0;bottom:0;
@@ -391,7 +313,7 @@
   }
 
   /* ── PROJECTS ── */
-  #projects{background:var(--primary);}
+  #projects{background:var(--secondary);}
   .projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:28px;margin-top:60px;}
   .project-card{
     background:var(--card-bg);border:1px solid var(--card-border);
@@ -411,6 +333,19 @@
   .project-highlights li::before{content:'→';position:absolute;left:0;color:var(--success);}
   .project-footer{display:flex;flex-wrap:wrap;gap:8px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.05);}
   .proj-tag{background:rgba(0,229,160,0.08);border:1px solid rgba(0,229,160,0.2);color:var(--success);padding:4px 12px;border-radius:50px;font-size:.74rem;font-weight:600;}
+
+  /* ── ACHIEVEMENTS ── */
+  #achievements{background:var(--primary);}
+  .achievements-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
+  .achieve-card{
+    background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:28px;text-align:center;
+    transition:transform .3s,border-color .3s;display:flex;flex-direction:column;align-items:center;
+  }
+  .achieve-card:hover{transform:translateY(-6px);border-color:var(--gold);}
+  .achieve-icon{width:64px;height:64px;border-radius:20px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
+  .achieve-num{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;background:var(--gradient3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;}
+  .achieve-title{font-size:.95rem;font-weight:700;margin-bottom:8px;}
+  .achieve-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
 
   /* ── EDUCATION ── */
   #education{background:var(--secondary);}
@@ -434,7 +369,7 @@
 
   /* ── CERTIFICATIONS ── */
   #certifications{background:var(--primary);}
-  .cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;margin-top:60px;}
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px;}
   .cert-card{
     background:var(--card-bg);border:1px solid var(--card-border);
     border-radius:var(--radius-lg);padding:28px;
@@ -456,46 +391,14 @@
   }
   .cert-view-link:hover{background:rgba(0,198,255,0.12);border-color:var(--accent2);transform:translateX(2px);}
 
-  /* ── ACHIEVEMENTS ── */
-  #achievements{background:var(--secondary);}
-  .achievements-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:60px;}
-  .achieve-card{
-    background:var(--card-bg);border:1px solid var(--card-border);
-    border-radius:var(--radius-lg);padding:28px;text-align:center;
-    transition:transform .3s,border-color .3s;
-  }
-  .achieve-card:hover{transform:translateY(-6px);border-color:var(--gold);}
-  .achieve-icon{width:64px;height:64px;border-radius:20px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;}
-  .achieve-num{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:800;background:var(--gradient3);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:4px;}
-  .achieve-title{font-size:.95rem;font-weight:700;margin-bottom:8px;}
-  .achieve-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
-
   /* ── CAREER GOALS ── */
-  #goals{background:var(--primary);}
-  .goals-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px;}
-  .goals-visual{position:relative;display:flex;align-items:center;justify-content:center;}
-  .goals-ring{width:280px;height:280px;border-radius:50%;border:2px solid rgba(30,111,255,0.2);display:flex;align-items:center;justify-content:center;position:relative;}
-  .goals-ring-inner{width:200px;height:200px;border-radius:50%;background:var(--gradient1);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;box-shadow:0 0 60px rgba(30,111,255,0.3);}
-  .goals-ring-text{font-size:1rem;font-weight:700;line-height:1.4;}
-  .orbit-badge{position:absolute;background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:8px 14px;font-size:.78rem;font-weight:600;white-space:nowrap;}
-  .ob-1{top:0;right:-20px;}
-  .ob-2{bottom:20px;left:-30px;}
-  .ob-3{top:50%;right:-50px;transform:translateY(-50%);}
-  .goal-items{display:flex;flex-direction:column;gap:20px;}
-  .goal-item{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px;display:flex;gap:16px;align-items:flex-start;transition:border-color .3s;}
-  .goal-item:hover{border-color:var(--accent);}
+  #goals{background:var(--secondary);}
+  .goals-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-top:60px;}
+  .goal-item{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;display:flex;gap:16px;align-items:flex-start;transition:border-color .3s,transform .3s;}
+  .goal-item:hover{border-color:var(--accent);transform:translateY(-4px);}
   .goal-item-icon{width:44px;height:44px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.1rem;}
-  .goal-item h4{font-size:.95rem;font-weight:700;margin-bottom:4px;}
-  .goal-item p{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
-
-  /* ── KEY STRENGTHS ── */
-  #strengths{background:var(--secondary);}
-  .strengths-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;margin-top:60px;}
-  .strength-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:var(--radius-lg);padding:28px;text-align:center;transition:transform .3s,border-color .3s;}
-  .strength-card:hover{transform:translateY(-6px);}
-  .strength-icon{width:60px;height:60px;border-radius:18px;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;}
-  .strength-title{font-size:.95rem;font-weight:700;margin-bottom:8px;}
-  .strength-desc{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+  .goal-item h4{font-size:.95rem;font-weight:700;margin-bottom:6px;}
+  .goal-item p{font-size:.85rem;color:var(--text-muted);line-height:1.6;}
 
   /* ── CONTACT ── */
   #contact{background:var(--primary);position:relative;overflow:hidden;}
@@ -555,12 +458,13 @@
 
   /* ── RESPONSIVE ── */
   @media(max-width:900px){
-    .hero-content{grid-template-columns:1fr;gap:40px;text-align:center;}
-    .hero-visual{display:none;}
     .hero-tags,.hero-btns,.hero-stats{justify-content:center;}
-    .goals-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
-    .goals-visual{display:none;}
+    .contact-grid{grid-template-columns:1fr;gap:40px;}
     .about-proof-grid{grid-template-columns:1fr;}
+    .strengths-grid{grid-template-columns:repeat(2,1fr);}
+    .achievements-grid{grid-template-columns:repeat(2,1fr);}
+    .cert-grid{grid-template-columns:repeat(2,1fr);}
+    .goals-grid{grid-template-columns:1fr;}
     nav{padding:16px 5%;}
     .nav-links{display:none;}
     .hamburger{display:flex;}
@@ -569,6 +473,9 @@
     section{padding:70px 5%;}
     .hero-name{font-size:2.2rem;}
     .projects-grid{grid-template-columns:1fr;}
+    .strengths-grid{grid-template-columns:1fr;}
+    .achievements-grid{grid-template-columns:1fr;}
+    .cert-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -610,7 +517,6 @@
   <div class="hero-bg"></div>
   <div class="hero-content">
 
-    <!-- LEFT TEXT -->
     <div class="hero-text">
       <div class="hero-badge">
         <span class="dot"></span>
@@ -653,58 +559,6 @@
       </div>
     </div>
 
-    <!-- RIGHT — PHOTO -->
-    <div class="hero-visual">
-      <div class="hero-avatar-wrap">
-        <!-- Spinning ring -->
-        <div class="hero-avatar-ring"></div>
-        <!-- Dashed ring -->
-        <div class="hero-avatar-ring2"></div>
-        <!-- Glow -->
-        <div class="hero-avatar-glow"></div>
-
-        <!-- ★ YOUR PHOTO ★ -->
-        <div class="hero-photo">
-          <img
-            src="https://i.imgur.com/placeholder.jpg"
-            alt="Jothisankar S K"
-            id="profilePhoto"
-            onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;background:linear-gradient(135deg,#1E6FFF,#7B2FFF);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:4px;\'><div style=\'font-size:4rem;font-weight:800;color:rgba(255,255,255,0.9);font-family:Space Grotesk,sans-serif;\'>JSK</div><div style=\'font-size:.7rem;color:rgba(255,255,255,0.5);letter-spacing:2px;\'>MECH ENG</div></div>'"
-          />
-        </div>
-
-        <!-- Floating badges -->
-        <div class="float-badge fb-1">
-          <div class="badge-icon" style="background:rgba(30,111,255,0.2);">
-            <i class="fas fa-certificate" style="color:#00C6FF;"></i>
-          </div>
-          <div>
-            <div style="font-size:.7rem;color:var(--text-muted);">Certified</div>
-            <div>CSWP ✓</div>
-          </div>
-        </div>
-        <div class="float-badge fb-2">
-          <div class="badge-icon" style="background:rgba(255,184,48,0.2);">
-            <i class="fas fa-flag-checkered" style="color:#FFB830;"></i>
-          </div>
-          <div>
-            <div style="font-size:.7rem;color:var(--text-muted);">Race Days</div>
-            <div>4–6 Campaigns</div>
-          </div>
-        </div>
-        <div class="float-badge fb-3">
-          <div class="badge-icon" style="background:rgba(0,229,160,0.2);">
-            <i class="fas fa-industry" style="color:#00E5A0;"></i>
-          </div>
-          <div>
-            <div style="font-size:.7rem;color:var(--text-muted);">Tata Electronics</div>
-            <div>Fixture Intern</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- /hero visual -->
-
   </div>
 </section>
 
@@ -715,7 +569,6 @@
     <h2 class="section-title">Designed in CAD. <span>Proven on the shop floor.</span></h2>
     <p class="section-desc">Mechanical Engineering graduate (CGPA 8.05, KCT) with a CSWP certification and hands-on experience across manufacturing, heat-exchanger design, carbon-fibre composites, and motorsport.</p>
 
-    <!-- 3 proof cards -->
     <div class="about-proof-grid">
 
       <div class="about-proof-card fade-in">
@@ -744,7 +597,6 @@
 
     </div>
 
-    <!-- 3 credential bullets -->
     <div class="about-cred-strip fade-in">
       <div class="about-cred-row">
         <div class="about-cred-icon"><i class="fas fa-layer-group" style="color:var(--accent2);"></i></div>
@@ -764,7 +616,7 @@
 </section>
 
 <!-- ══════════════════════ KEY STRENGTHS ══════════════════════ -->
-<section id="strengths" style="background:var(--primary);">
+<section id="strengths">
   <div class="section-inner">
     <div class="section-label">Core Competencies</div>
     <h2 class="section-title">Key <span>Strengths</span></h2>
@@ -1229,50 +1081,38 @@
 </section>
 
 <!-- ══════════════════════ CAREER GOALS ══════════════════════ -->
-<section id="goals" style="background:var(--secondary);">
+<section id="goals">
   <div class="section-inner">
     <div class="section-label">Vision</div>
     <h2 class="section-title">Career <span>Goals</span></h2>
     <p class="section-desc">Purposeful, focused, and ready to contribute from day one.</p>
     <div class="goals-grid">
-      <div class="goals-visual fade-in">
-        <div class="goals-ring">
-          <div class="goals-ring-inner">
-            <div class="goals-ring-text">Design Engineer<br>&amp;<br>Manufacturing<br>Professional</div>
-          </div>
-          <div class="orbit-badge ob-1">🚗 Automotive</div>
-          <div class="orbit-badge ob-2">⚙ Product Design</div>
-          <div class="orbit-badge ob-3">🏎 Motorsport</div>
+      <div class="goal-item fade-in">
+        <div class="goal-item-icon" style="background:rgba(30,111,255,0.15);"><i class="fas fa-crosshairs" style="color:#1E6FFF;"></i></div>
+        <div>
+          <h4>Immediate Goal</h4>
+          <p>Secure a full-time role as a Design / Fixture / Manufacturing Engineer in automotive, EV, or advanced manufacturing — applying CSWP-level SolidWorks skills in production environments.</p>
         </div>
       </div>
-      <div class="goal-items fade-in">
-        <div class="goal-item">
-          <div class="goal-item-icon" style="background:rgba(30,111,255,0.15);"><i class="fas fa-crosshairs" style="color:#1E6FFF;"></i></div>
-          <div>
-            <h4>Immediate Goal</h4>
-            <p>Secure a full-time role as a Design / Fixture / Manufacturing Engineer in automotive, EV, or advanced manufacturing — applying CSWP-level SolidWorks skills in production environments.</p>
-          </div>
+      <div class="goal-item fade-in">
+        <div class="goal-item-icon" style="background:rgba(0,229,160,0.12);"><i class="fas fa-rocket" style="color:#00E5A0;"></i></div>
+        <div>
+          <h4>Medium-Term (2–3 Years)</h4>
+          <p>Lead fixture and tooling development projects; deepen expertise in DFM, cost engineering, and composite structural design for EV or motorsport applications.</p>
         </div>
-        <div class="goal-item">
-          <div class="goal-item-icon" style="background:rgba(0,229,160,0.12);"><i class="fas fa-rocket" style="color:#00E5A0;"></i></div>
-          <div>
-            <h4>Medium-Term (2–3 Years)</h4>
-            <p>Lead fixture and tooling development projects; deepen expertise in DFM, cost engineering, and composite structural design for EV or motorsport applications.</p>
-          </div>
+      </div>
+      <div class="goal-item fade-in">
+        <div class="goal-item-icon" style="background:rgba(255,184,48,0.12);"><i class="fas fa-star" style="color:#FFB830;"></i></div>
+        <div>
+          <h4>Long-Term Vision</h4>
+          <p>Become a Principal Design or Manufacturing Engineer — shaping next-generation EV platforms and lightweight structural systems bridging performance engineering with sustainable manufacturing.</p>
         </div>
-        <div class="goal-item">
-          <div class="goal-item-icon" style="background:rgba(255,184,48,0.12);"><i class="fas fa-star" style="color:#FFB830;"></i></div>
-          <div>
-            <h4>Long-Term Vision</h4>
-            <p>Become a Principal Design or Manufacturing Engineer — shaping next-generation EV platforms and lightweight structural systems bridging performance engineering with sustainable manufacturing.</p>
-          </div>
-        </div>
-        <div class="goal-item">
-          <div class="goal-item-icon" style="background:rgba(123,47,255,0.15);"><i class="fas fa-globe" style="color:#7B2FFF;"></i></div>
-          <div>
-            <h4>Industries of Interest</h4>
-            <p>Electric Vehicles · Motorsport Engineering · Aerospace &amp; Defence · Advanced Manufacturing · Industrial Equipment Design</p>
-          </div>
+      </div>
+      <div class="goal-item fade-in">
+        <div class="goal-item-icon" style="background:rgba(123,47,255,0.15);"><i class="fas fa-globe" style="color:#7B2FFF;"></i></div>
+        <div>
+          <h4>Industries of Interest</h4>
+          <p>Electric Vehicles · Motorsport Engineering · Aerospace &amp; Defence · Advanced Manufacturing · Industrial Equipment Design</p>
         </div>
       </div>
     </div>
@@ -1280,7 +1120,7 @@
 </section>
 
 <!-- ══════════════════════ TESTIMONIALS ══════════════════════ -->
-<section id="testimonials" style="background:var(--primary);">
+<section id="testimonials">
   <div class="section-inner">
     <div class="section-label">Social Proof</div>
     <h2 class="section-title">What They <span>Say</span></h2>
@@ -1394,39 +1234,6 @@
 
 <!-- ══════════════════════ SCRIPTS ══════════════════════ -->
 <script>
-/* ── EMBED YOUR PHOTO AS BASE64 ───────────────────────────────────────
-   The photo you shared is embedded below as a data URL so it works
-   100% offline with zero external dependencies.
-   Simply save this file as index.html and open it — your photo appears.
-──────────────────────────────────────────────────────────────────────── */
-(function(){
-  const img = document.getElementById('profilePhoto');
-
-  /* We load the image you provided via a canvas → dataURL conversion.
-     Since the image was shared in this session we reference it directly.
-     Replace the src below with your actual hosted URL or base64 string
-     when deploying. */
-  img.src = "https://i.ibb.co/your-uploaded-photo/jsk.jpg"; // ← replace with actual hosted URL
-
-  /* ── FALLBACK: If you save the photo as 'profile.jpg' in the same
-     folder as index.html, change the src to just: 'profile.jpg'      */
-  img.onerror = function(){
-    this.parentElement.innerHTML = `
-      <div style="
-        width:100%;height:100%;
-        background:linear-gradient(135deg,#1a2a5e,#0D1B3E);
-        display:flex;align-items:center;justify-content:center;
-        flex-direction:column;gap:8px;
-      ">
-        <div style="font-size:5rem;font-weight:800;color:rgba(255,255,255,0.85);font-family:'Space Grotesk',sans-serif;
-          background:linear-gradient(135deg,#00C6FF,#1E6FFF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
-          JSK
-        </div>
-        <div style="font-size:.7rem;color:rgba(255,255,255,0.4);letter-spacing:3px;text-transform:uppercase;">Mech Eng</div>
-      </div>`;
-  };
-})();
-
 /* ── SKILL BAR ANIMATION ────────────────────────────────────────────── */
 const skillFills = document.querySelectorAll('.skill-fill');
 const skillObserver = new IntersectionObserver((entries) => {
@@ -1494,22 +1301,5 @@ function openMobileNav()  { document.getElementById('mobileNav').classList.add('
 function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
 </script>
 
-<!-- ══════════════════════════════════════════════════════════════════
-  HOW TO ADD YOUR PHOTO (3 easy options):
-
-  OPTION 1 — Local file (easiest for offline use):
-  1. Save your photo as  profile.jpg  in the same folder as index.html
-  2. Change line  img.src = "..."  above to:   img.src = "profile.jpg";
-
-  OPTION 2 — Upload to imgbb.com (free, instant):
-  1. Go to https://imgbb.com and upload your photo
-  2. Copy the "Direct link"
-  3. Paste it as the img.src value above
-
-  OPTION 3 — GitHub (for live deployment):
-  1. Push index.html + profile.jpg to your GitHub repo
-  2. Enable GitHub Pages
-  3. Change src to  "profile.jpg"  — GitHub serves it automatically
-════════════════════════════════════════════════════════════════════ -->
 </body>
 </html>
