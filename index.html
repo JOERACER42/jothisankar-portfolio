@@ -261,23 +261,55 @@
 
   /* ── ABOUT ── */
   #about{background:var(--secondary);}
-  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:60px;}
   .about-text p{color:var(--text-muted);line-height:1.8;font-size:1rem;margin-bottom:16px;}
   .about-text p strong{color:var(--text);}
-  .why-cards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px;}
-  .why-card{
+
+  /* About proof cards (3-up) */
+  .about-proof-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+    margin-top:48px;
+  }
+  .about-proof-card{
     background:var(--card-bg);border:1px solid var(--card-border);
-    border-radius:var(--radius);padding:20px;
+    border-radius:var(--radius-lg);padding:28px 24px;
     transition:transform .3s,border-color .3s;
   }
-  .why-card:hover{transform:translateY(-4px);border-color:var(--accent);}
-  .why-card-icon{
-    width:44px;height:44px;border-radius:12px;
-    background:var(--gradient1);display:flex;align-items:center;justify-content:center;
-    font-size:1.2rem;margin-bottom:12px;
+  .about-proof-card:hover{transform:translateY(-4px);border-color:var(--accent);}
+  .about-proof-tag{
+    display:inline-block;font-size:.7rem;font-weight:700;
+    text-transform:uppercase;letter-spacing:1px;
+    padding:5px 14px;border-radius:50px;margin-bottom:18px;
   }
-  .why-card h4{font-size:.95rem;font-weight:700;margin-bottom:6px;}
-  .why-card p{font-size:.82rem;color:var(--text-muted);line-height:1.5;}
+  .about-proof-tag.tag-mfg{background:rgba(30,111,255,0.14);color:var(--accent2);border:1px solid rgba(30,111,255,0.3);}
+  .about-proof-tag.tag-sport{background:rgba(255,184,48,0.12);color:var(--gold);border:1px solid rgba(255,184,48,0.3);}
+  .about-proof-tag.tag-cert{background:rgba(0,229,160,0.1);color:var(--success);border:1px solid rgba(0,229,160,0.3);}
+  .about-proof-title{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.1rem;font-weight:700;margin-bottom:12px;line-height:1.3;
+  }
+  .about-proof-body{font-size:.85rem;color:var(--text-muted);line-height:1.65;margin-bottom:20px;}
+  .about-proof-stat{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:1.6rem;font-weight:700;
+    background:var(--gradient2);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    display:block;
+  }
+  .about-proof-stat-label{font-size:.74rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.6px;margin-top:4px;display:block;}
+
+  /* About credential strip */
+  .about-cred-strip{
+    margin-top:48px;padding-top:40px;
+    border-top:1px solid rgba(255,255,255,0.08);
+    display:flex;flex-direction:column;gap:18px;
+  }
+  .about-cred-row{display:flex;align-items:flex-start;gap:16px;}
+  .about-cred-icon{
+    width:40px;height:40px;border-radius:12px;flex-shrink:0;
+    background:var(--card-bg);border:1px solid var(--card-border);
+    display:flex;align-items:center;justify-content:center;font-size:1rem;
+  }
+  .about-cred-text{font-size:.92rem;color:var(--text-muted);line-height:1.6;padding-top:7px;}
+  .about-cred-text strong{color:var(--text);font-weight:600;}
 
   /* ── SKILLS ── */
   #skills{background:var(--primary);}
@@ -415,6 +447,14 @@
   .cert-name{font-size:.98rem;font-weight:700;margin-bottom:4px;}
   .cert-date{font-size:.78rem;color:var(--text-muted);}
   .cert-verified{display:inline-flex;align-items:center;gap:5px;background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.2);color:var(--success);padding:3px 10px;border-radius:50px;font-size:.7rem;font-weight:600;margin-top:8px;}
+  .cert-view-link{
+    display:inline-flex;align-items:center;gap:6px;
+    color:var(--accent2);font-size:.78rem;font-weight:600;
+    text-decoration:none;margin-top:10px;
+    border:1px solid rgba(0,198,255,0.3);padding:6px 14px;border-radius:50px;
+    transition:all .3s;
+  }
+  .cert-view-link:hover{background:rgba(0,198,255,0.12);border-color:var(--accent2);transform:translateX(2px);}
 
   /* ── ACHIEVEMENTS ── */
   #achievements{background:var(--secondary);}
@@ -518,9 +558,9 @@
     .hero-content{grid-template-columns:1fr;gap:40px;text-align:center;}
     .hero-visual{display:none;}
     .hero-tags,.hero-btns,.hero-stats{justify-content:center;}
-    .about-grid,.goals-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
+    .goals-grid,.contact-grid{grid-template-columns:1fr;gap:40px;}
     .goals-visual{display:none;}
-    .why-cards{grid-template-columns:1fr;}
+    .about-proof-grid{grid-template-columns:1fr;}
     nav{padding:16px 5%;}
     .nav-links{display:none;}
     .hamburger{display:flex;}
@@ -668,44 +708,58 @@
   </div>
 </section>
 
-<!-- ══════════════════════ ABOUT / WHY HIRE ME ══════════════════════ -->
+<!-- ══════════════════════ ABOUT / WHAT I BRING ══════════════════════ -->
 <section id="about">
   <div class="section-inner">
     <div class="section-label">About Me</div>
-    <h2 class="section-title">Why Hire <span>Jothisankar?</span></h2>
-    <p class="section-desc">A rare combination of CAD expertise, hands-on shop-floor exposure, motorsport precision, and a CSWP certification — all before graduation.</p>
-    <div class="about-grid">
-      <div class="about-text fade-in">
-        <p>I am a <strong>Mechanical Engineering graduate from Kumaraguru College of Technology</strong> (8.05 CGPA) with diverse hands-on experience spanning high-volume electronics manufacturing, industrial heat-exchanger design, carbon-fibre composites, and motorsport engineering.</p>
-        <p>My internship at <strong>Tata Electronics</strong> gave me direct exposure to fixture development cycles — from DFM-based SolidWorks design and should-cost analysis to 3D-printed prototype validation — in one of India's most demanding manufacturing environments.</p>
-        <p>As a <strong>Race Mechanic at DTS Racing Team</strong>, I operated under extreme time pressure across 4–6 championship campaigns, performing tyre changes, suspension set-up, and data-driven engineering decisions alongside professional race engineers.</p>
-        <p>I hold a <strong>Certified SolidWorks Professional (CSWP)</strong> credential and have complemented it with Autodesk Fusion 360 training, FEA with ANSYS, and carbon-fibre manufacturing expertise — making me production-floor ready from day one.</p>
+    <h2 class="section-title">Designed in CAD. <span>Proven on the shop floor.</span></h2>
+    <p class="section-desc">Mechanical Engineering graduate (CGPA 8.05, KCT) with a CSWP certification and hands-on experience across manufacturing, heat-exchanger design, carbon-fibre composites, and motorsport.</p>
+
+    <!-- 3 proof cards -->
+    <div class="about-proof-grid">
+
+      <div class="about-proof-card fade-in">
+        <span class="about-proof-tag tag-mfg">Manufacturing</span>
+        <div class="about-proof-title">Tata Electronics — Fixture Development</div>
+        <p class="about-proof-body">Covered the full cycle: DFM analysis in SolidWorks, should-cost estimation, and 3D-printed prototype validation inside a high-volume electronics facility.</p>
+        <span class="about-proof-stat">End-to-end</span>
+        <span class="about-proof-stat-label">fixture development exposure</span>
       </div>
-      <div class="fade-in">
-        <div class="why-cards">
-          <div class="why-card">
-            <div class="why-card-icon"><i class="fas fa-medal" style="color:#fff;"></i></div>
-            <h4>CSWP Certified</h4>
-            <p>Industry-recognised SolidWorks professional certification from Dassault Systèmes — rare at undergraduate level.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-card-icon" style="background:var(--gradient2);"><i class="fas fa-industry" style="color:#fff;"></i></div>
-            <h4>Real Industry Exposure</h4>
-            <p>Tata Electronics fixture intern — identified 10–30% cost gaps across 10+ fixtures in high-volume production.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-card-icon" style="background:linear-gradient(135deg,#FFB830,#FF6B35);"><i class="fas fa-flag-checkered" style="color:#fff;"></i></div>
-            <h4>Motorsport Precision</h4>
-            <p>Race-ready mindset. Performed live pit operations for F4 LGB &amp; F1300 formula cars under championship pressure.</p>
-          </div>
-          <div class="why-card">
-            <div class="why-card-icon" style="background:linear-gradient(135deg,#00E5A0,#00C6FF);"><i class="fas fa-layer-group" style="color:#fff;"></i></div>
-            <h4>Composite Materials</h4>
-            <p>Hands-on carbon &amp; glass fibre lay-up, curing, and quality control from FMAE manufacturing internship.</p>
-          </div>
-        </div>
+
+      <div class="about-proof-card fade-in">
+        <span class="about-proof-tag tag-sport">Motorsport</span>
+        <div class="about-proof-title">DTS Racing — Race Mechanic</div>
+        <p class="about-proof-body">Worked directly with race engineers across championship campaigns, executing under the kind of time pressure that sharpens precision and decision-making fast.</p>
+        <span class="about-proof-stat">4 – 6</span>
+        <span class="about-proof-stat-label">championship campaigns</span>
+      </div>
+
+      <div class="about-proof-card fade-in">
+        <span class="about-proof-tag tag-cert">Certified</span>
+        <div class="about-proof-title">CSWP — before graduation</div>
+        <p class="about-proof-body">Certified SolidWorks Professional while still a student — signals a level of CAD depth that most graduates reach only a few years into the job.</p>
+        <span class="about-proof-stat">CSWP</span>
+        <span class="about-proof-stat-label">SolidWorks certified</span>
+      </div>
+
+    </div>
+
+    <!-- 3 credential bullets -->
+    <div class="about-cred-strip fade-in">
+      <div class="about-cred-row">
+        <div class="about-cred-icon"><i class="fas fa-layer-group" style="color:var(--accent2);"></i></div>
+        <p class="about-cred-text"><strong>Carbon-fibre composites</strong> — hands-on material and process experience beyond standard coursework</p>
+      </div>
+      <div class="about-cred-row">
+        <div class="about-cred-icon"><i class="fas fa-temperature-high" style="color:var(--accent2);"></i></div>
+        <p class="about-cred-text"><strong>Industrial heat-exchanger design</strong> — thermal systems exposure alongside manufacturing and structural work</p>
+      </div>
+      <div class="about-cred-row">
+        <div class="about-cred-icon"><i class="fas fa-drafting-compass" style="color:var(--accent2);"></i></div>
+        <p class="about-cred-text"><strong>DFM-first design thinking</strong> — every concept considered through the lens of how it will actually be made</p>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -1091,24 +1145,85 @@
     <h2 class="section-title">Certifications &amp; <span>Courses</span></h2>
     <p class="section-desc">Industry-recognised credentials that validate my technical expertise.</p>
     <div class="cert-grid">
+
       <div class="cert-card fade-in">
         <div class="cert-badge">🏆</div>
         <div>
           <div class="cert-issuer">Dassault Systèmes</div>
           <div class="cert-name">Certified SOLIDWORKS Professional (CSWP)</div>
-          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Sep 2025</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Mar 2025</div>
           <div class="cert-verified"><i class="fas fa-check-circle"></i> Verified Credential</div>
+          <a class="cert-view-link" href="https://drive.google.com/file/d/1JNpzI2VsC5vSzixZekzYf0sfYbf7bY8C/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> View certificate
+          </a>
         </div>
       </div>
+
       <div class="cert-card fade-in">
         <div class="cert-badge">📐</div>
         <div>
           <div class="cert-issuer">Autodesk</div>
           <div class="cert-name">Mastering Fusion 360 for CAD</div>
-          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Mar 2025 · Coimbatore</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Oct 2025</div>
           <div class="cert-verified"><i class="fas fa-check-circle"></i> Course Completed</div>
+          <a class="cert-view-link" href="https://drive.google.com/file/d/1J40GPpt0EEO60b_0s7obP02BnB9Q8b1Y/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> View certificate
+          </a>
         </div>
       </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-badge">📊</div>
+        <div>
+          <div class="cert-issuer">LinkedIn Learning</div>
+          <div class="cert-name">Six Sigma: Green Belt</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Jun 2025</div>
+          <div class="cert-verified"><i class="fas fa-check-circle"></i> Course Completed</div>
+          <a class="cert-view-link" href="https://drive.google.com/file/d/1X-IYR_uXCWtJYzkRNJbGSXPVkzkeiXnm/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> View certificate
+          </a>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🪶</div>
+        <div>
+          <div class="cert-issuer">FMAE</div>
+          <div class="cert-name">Carbon &amp; Glass Fibre Moulding</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Mar 2025</div>
+          <div class="cert-verified"><i class="fas fa-check-circle"></i> Verified Credential</div>
+          <a class="cert-view-link" href="https://drive.google.com/file/d/10AEwPnPE8cysCYTy0xxeWe3q9gnCSf1z/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> View certificate
+          </a>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🏁</div>
+        <div>
+          <div class="cert-issuer">Formula Bharat</div>
+          <div class="cert-name">Formula Bharat Volunteer</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>Jan 2025</div>
+          <div class="cert-verified"><i class="fas fa-check-circle"></i> Verified Credential</div>
+          <a class="cert-view-link" href="https://drive.google.com/file/d/1yACQ-_yIkt1Ix_CIpDKXxxdLmO1HuITK/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> View certificate
+          </a>
+        </div>
+      </div>
+
+      <div class="cert-card fade-in">
+        <div class="cert-badge">🏎</div>
+        <div>
+          <div class="cert-issuer">Udemy</div>
+          <div class="cert-name">F1 Aerodynamics: CFD Models &amp; Jobs in F1</div>
+          <div class="cert-date"><i class="fas fa-calendar-alt" style="margin-right:4px;"></i>May 2024</div>
+          <div class="cert-verified"><i class="fas fa-check-circle"></i> Course Completed</div>
+          <a class="cert-view-link" href="https://drive.google.com/file/d/1ZwC7SHpfr95biHr2W7PWQ0mpMB50z3fF/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-external-link-alt"></i> View certificate
+          </a>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
